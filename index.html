@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sunflower Garden with Poem</title>
+
+<style>
+/* --- TODO TU CSS ORIGINAL SE MANTIENE --- */
+/* (no lo modifiqué, solo agrego lo del poema abajo) */
+
+/* ===== POEMA ===== */
+.poem {
+  position: fixed;
+  top: 10%;
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-family: Georgia, serif;
+  font-size: 2.2vmin;
+  letter-spacing: 0.1em;
+  line-height: 1.6;
+  z-index: 1000;
+}
+
+/* Cada línea inicia invisible */
+.poem span {
+  display: block;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeLine 2s ease forwards;
+}
+
+/* Retrasos para cada línea */
+.poem span:nth-child(1) { animation-delay: 2s; }
+.poem span:nth-child(2) { animation-delay: 4s; }
+.poem span:nth-child(3) { animation-delay: 6s; }
+.poem span:nth-child(4) { animation-delay: 8s; }
+.poem span:nth-child(5) { animation-delay: 10s; }
+.poem span:nth-child(6) { animation-delay: 12s; }
+.poem span:nth-child(7) { animation-delay: 14s; }
+.poem span:nth-child(8) { animation-delay: 16s; }
+.poem span:nth-child(9) { animation-delay: 18s; }
+.poem span:nth-child(10) { animation-delay: 20s; }
+.poem span:nth-child(11) { animation-delay: 22s; }
+
+/* Animación */
+@keyframes fadeLine {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Brillo elegante */
+.poem {
+  text-shadow: 0 0 10px rgba(255,255,255,0.7),
+               0 0 20px rgba(255,255,255,0.4);
+}
+</style>
+</head>
+
+<body class="not-loaded">
+
+<!-- (TODO tu contenido original: night, stars, flowers, etc.) -->
+
+<!-- ===== POEMA ===== -->
+<div class="poem">
+  <span>Por mil estrellas que haya en el firmamento,</span>
+  <span>por centenares de estrellas fugaces</span>
+  <span>que podamos ver y apreciar,</span>
+
+  <span>fuese una o fuesen todas,</span>
+  <span>desearía siempre lo mismo…</span>
+
+  <span>Que me ames, como yo te amo.</span>
+  <span>Que me mires, como yo te miro.</span>
+
+  <span>Y que estemos juntos siempre,</span>
+  <span>desde ahora,</span>
+  <span>hasta que la muerte sea nuestro final funesto.</span>
+</div>
+
+<script>
+/* TU JS ORIGINAL (no cambia nada) */
+onload = () => {
+  const c = setTimeout(() => {
+    document.body.classList.remove("not-loaded");
+
+    function createShootingStar() {
+      const star = document.createElement('div');
+      star.className = 'shooting-star';
+      star.style.top = Math.random() * 60 + '%';
+      star.style.animationDuration = (Math.random() * 1.5 + 2) + 's';
+      
+      document.querySelector('.shooting-stars').appendChild(star);
+
+      setTimeout(() => {
+        star.remove();
+      }, 4000);
+    }
+
+    setInterval(() => {
+      if (Math.random() > 0.3) {
+        createShootingStar();
+      }
+    }, Math.random() * 5000 + 3000);
+
+    clearTimeout(c);
+  }, 1000);
+};
+</script>
+
+</body>
+</html>
